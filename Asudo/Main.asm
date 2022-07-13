@@ -1,14 +1,17 @@
 .386
 .model flat, stdcall
 
-include C:\masm32\include\kernel32.inc
-includelib C:\masm32\include\kernel32.lib
-include C:\masm32\include\user32.inc
-includelib C:\masm32\include\user32.lib
+include \masm32\include\masm32rt.inc
 
 .data
     hTitle db "Hello", 0
+    runMode db "runas", 0
+    commandName db "cmd", 0
+    shellCommand db '/k cd "', 0
+    shellAnd db '" && ', 0
+    combinedCommand db 2048 dup(?)
     executableName db 1024 dup(0)
+    programDir db 1024 dup(0)
 
 .code
     Main:
@@ -16,11 +19,7 @@ includelib C:\masm32\include\user32.lib
         push 1024
         push offset executableName
         push 0
-        call GetModuleFileNameA
-
-        ; Increase the Returned Length To Ignore Double Quotes
-        inc eax
-        inc eax
+        call GetModuleFileName
 
         ; Save to the EBX
         mov ebx, eax
@@ -28,21 +27,47 @@ includelib C:\masm32\include\user32.lib
         ; Get Full CLI Arguments
         call GetCommandLine
 
+        ; Increase the Returned Length To Ignore Double Quotes If Exists
+        inc ebx
+        inc ebx
+
         ; EAX = CLI | EBX = FIRST ARGUMENT LENGTH
-        ; ECX = CLI + LENGTH
+        ; ESI = CLI + LENGTH
         ; For Example, ["C:\thing.exe" aaa bbb] -> [aaa bbb]
-        lea ecx, [eax + ebx]
+        lea esi, [eax + ebx]
 
-        ; A Code for Debug
+        ; Save Current Path
+        push offset programDir
+        push 1024
+        call GetCurrentDirectory
+
+        ; Concat Strings
+        push offset shellCommand
+        push offset combinedCommand
+        call szCatStr
+
+        push offset programDir
+        push offset combinedCommand
+        call szCatStr
+
+        push offset shellAnd
+        push offset combinedCommand
+        call szCatStr
+
+        push esi
+        push offset combinedCommand
+        call szCatStr
+
+        ; Call Shell Execute
+        push 1
         push 0
-        push offset hTitle
-        push ecx
+        push offset combinedCommand
+        push offset commandName
+        push offset runMode
         push 0
-        call MessageBoxA
+        call ShellExecute
 
-        jmp Exit
-
-        Exit:
-            push 0
-            call ExitProcess
+        ; Exit
+        push 0
+        call ExitProcess
     End Main
