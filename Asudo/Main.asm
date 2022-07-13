@@ -27,7 +27,7 @@ include \masm32\include\masm32rt.inc
         ; Get Full CLI Arguments
         call GetCommandLine
 
-        ; Increase the Returned Length To Ignore Double Quotes If Exists
+        ; Increase the Returned Length To Ignore Double Quotes
         inc ebx
         inc ebx
 
