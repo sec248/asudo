@@ -12,8 +12,11 @@ A simple, minimal and limited sudo command for Windows. Written in x86 Assembly 
 
 ## Installation
 Download the latest binaries from **Releases** and add folder to the PATH.
+
+- `asudo`
 - `asudo notepad`
 - `asudo echo hello`
+
 Asudo takes arguments as raw arguments. If `cmd` can run it, so asudo can.
 
 ## License
