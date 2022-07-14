@@ -4,32 +4,20 @@
 include \masm32\include\masm32rt.inc
 
 .data
-    hTitle db "Hello", 0
     runMode db "runas", 0
     commandName db "cmd", 0
     shellCommand db '/k cd "', 0
     shellAnd db '" && ', 0
     combinedCommand db 2048 dup(?)
-    executableName db 1024 dup(0)
     programDir db 1024 dup(0)
 
 .code
     Main:
-        ; Get Module File Name Here
-        push 1024
-        push offset executableName
-        push 0
-        call GetModuleFileName
-
-        ; Save to the EBX
-        mov ebx, eax
+        ; "Asudo" Length
+        mov ebx, 5
 
         ; Get Full CLI Arguments
         call GetCommandLine
-
-        ; Increase the Returned Length To Ignore Double Quotes
-        inc ebx
-        inc ebx
 
         ; EAX = CLI | EBX = FIRST ARGUMENT LENGTH
         ; ESI = CLI + LENGTH

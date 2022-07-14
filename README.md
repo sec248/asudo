@@ -1,6 +1,8 @@
 # Asudo
 A simple, minimal and limited sudo command for Windows. Written in x86 Assembly and the executable size is around ~4kb
 
+Use masm32 to compile.
+
 ## Features
 - Sets directory before executing
 - Supports x86 and x86_64
