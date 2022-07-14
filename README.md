@@ -11,6 +11,7 @@ Use masm32 to compile.
 ## Limitations
 - Argument length must be less than 2kb
 - No configurations like sudo
+- Designed for CMD and PowerShell.
 
 ## Installation
 Download the latest binaries from **Releases** and add folder to the PATH.
