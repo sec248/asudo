@@ -19,9 +19,4 @@
       <Filter>Kaynak Dosyalar</Filter>
     </MASM>
   </ItemGroup>
-  <ItemGroup>
-    <None Include="Asudo.bat">
-      <Filter>Kaynak Dosyalar</Filter>
-    </None>
-  </ItemGroup>
 </Project>

@@ -9,6 +9,7 @@ include \masm32\include\masm32rt.inc
     shellCommand db '/k cd "', 0
     shellAnd db '" && ', 0
     combinedCommand db 2048 dup(?)
+    executableName db 1024 dup(0)
     programDir db 1024 dup(0)
 
 .code
@@ -18,6 +19,28 @@ include \masm32\include\masm32rt.inc
 
         ; Get Full CLI Arguments
         call GetCommandLine
+
+        ; Check if Starts with '"'
+        .if BYTE PTR [eax] == 34
+            ; Save to EDI
+            mov edi, eax
+
+            ; Get Module File Name Here
+            push 1024
+            push offset executableName
+            push 0
+            call GetModuleFileNameA
+
+            ; Add Double Quotes
+            inc eax
+            inc eax
+
+            ; Move Count to EBX
+            mov ebx, eax
+
+            ; Move Value to EAX
+            mov eax, edi
+        .endif
 
         ; EAX = CLI | EBX = FIRST ARGUMENT LENGTH
         ; ESI = CLI + LENGTH

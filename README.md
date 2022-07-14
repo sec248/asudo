@@ -15,7 +15,7 @@ Use masm32 to compile.
 ## Installation
 Download the latest binaries from **Releases** and add folder to the PATH.
 
-- `asudo`
+- `asudo powershell`
 - `asudo notepad`
 - `asudo echo hello`
 
