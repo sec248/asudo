@@ -19,4 +19,14 @@
       <Filter>Kaynak Dosyalar</Filter>
     </MASM>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="resource.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Asudo.rc">
+      <Filter>Kaynak Dosyaları</Filter>
+    </ResourceCompile>
+  </ItemGroup>
 </Project>
