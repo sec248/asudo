@@ -13,10 +13,10 @@ include \masm32\include\masm32rt.inc
     errorFirstParameter db "Can't find first parameter or parameter is bad formatted. (must be 'k' or 'c')", 10, 0
     errorSecondParameter db "You must give a command to run.", 10, 0
     ; Changes in Runtime
-    combinedCommand db 2048 dup(?)
-    programDir db 2048 dup(?)
-    firstParameter db 2048 dup(?)
-    secondParameter db 2048 dup(?)
+    combinedCommand db 2512 dup(?)
+    programDir db 261 dup(?)
+    firstParameter db 2 dup(?)
+    secondParameter db 2049 dup(?)
 
 .code
     Main:

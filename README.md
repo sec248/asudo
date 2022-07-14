@@ -9,7 +9,7 @@ Use masm32 to compile.
 - Works
 
 ## Limitations
-- Argument length must be less than 2kb
+- Max command length is 2kb (2048 byte). For bigger commands, run a batch file.
 - No configurations like sudo
 - Designed for CMD and PowerShell.
 
