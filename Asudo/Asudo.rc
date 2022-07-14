@@ -51,8 +51,8 @@ END
 //
 
 VS_VERSION_INFO VERSIONINFO
- FILEVERSION 0,1,1,0
- PRODUCTVERSION 0,1,1,0
+ FILEVERSION 0,2,0,0
+ PRODUCTVERSION 0,2,0,0
  FILEFLAGSMASK 0x3fL
 #ifdef _DEBUG
  FILEFLAGS 0x1L
@@ -69,12 +69,12 @@ BEGIN
         BEGIN
             VALUE "CompanyName", "sec248"
             VALUE "FileDescription", "Simple sudo command for Windows"
-            VALUE "FileVersion", "0.1.1.0"
+            VALUE "FileVersion", "0.2.0.0"
             VALUE "InternalName", "Asudo.exe"
             VALUE "LegalCopyright", "Copyright (C) 2022"
             VALUE "OriginalFilename", "Asudo.exe"
             VALUE "ProductName", "ASudo"
-            VALUE "ProductVersion", "0.1.1.0"
+            VALUE "ProductVersion", "0.2.0.0"
         END
     END
     BLOCK "VarFileInfo"

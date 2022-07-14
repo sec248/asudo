@@ -16,11 +16,18 @@ Use masm32 to compile.
 ## Installation
 Download the latest binaries from **Releases** and add folder to the PATH.
 
-- `asudo powershell`
-- `asudo notepad`
-- `asudo echo hello`
+## Usage
+First parameter only can be `c` or `k`
+- `c`: Closes after execute
+- `k`: Keeps after execute
 
-Asudo takes arguments as raw arguments. If `cmd` can run it, so asudo can.
+Next parameter is the command will run, must be in quotes if your command includes space.
+
+Example usage(s):
+- `asudo c powershell`
+- `asudo c notepad`
+- `asudo c "echo hello"`
+- `asudo k "echo hello"`
 
 ## License
 Asudo is licensed with the MIT license.
