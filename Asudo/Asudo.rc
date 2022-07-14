@@ -73,7 +73,7 @@ BEGIN
             VALUE "InternalName", "Asudo.exe"
             VALUE "LegalCopyright", "Copyright (C) 2022"
             VALUE "OriginalFilename", "Asudo.exe"
-            VALUE "ProductName", "ASudo"
+            VALUE "ProductName", "Asudo"
             VALUE "ProductVersion", "0.2.0.0"
         END
     END
